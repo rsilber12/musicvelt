@@ -1,0 +1,178 @@
+@font-face {
+  font-family: "FB Coherenti Sans";
+  src: url("assets/FbCoherentiSans-ExtraLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --gold: #ccae5e;
+  --gold-light: #ead89a;
+  --white: #ffffff;
+  --black: #080706;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: "FB Coherenti Sans", Arial, sans-serif;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(2rem, 7vh, 5rem) 1.5rem;
+  background-color: var(--black);
+  background-image: url("assets/background.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 52%;
+  background-size: cover;
+}
+
+.hero__shade {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.12) 52%, rgba(0, 0, 0, 0.54) 100%),
+    radial-gradient(circle at 50% 43%, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.4) 85%);
+}
+
+.brand {
+  display: flex;
+  width: min(100%, 42rem);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.36));
+}
+
+.brand__icon {
+  width: clamp(5.5rem, 13vw, 8.6rem);
+  height: auto;
+  margin-bottom: clamp(1.9rem, 5vh, 3.5rem);
+}
+
+.brand__logo {
+  width: min(84vw, 29rem);
+  height: auto;
+}
+
+.brand__message {
+  margin: clamp(1.55rem, 4vh, 2.5rem) 0 0;
+  color: var(--white);
+  font-size: clamp(1.25rem, 3.5vw, 1.85rem);
+  font-weight: 200;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-width: 10.5rem;
+  min-height: 3.15rem;
+  margin-top: clamp(1.75rem, 4vh, 2.6rem);
+  padding: 0.7rem 1.65rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: rgba(8, 7, 6, 0.35);
+  color: var(--gold-light);
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.contact-button svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.25;
+}
+
+.contact-button:hover {
+  background: var(--gold);
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(204, 174, 94, 0.22);
+}
+
+.contact-button:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+}
+
+@media (max-width: 520px) {
+  .hero {
+    padding-inline: 1.15rem;
+    background-position: 48% 50%;
+  }
+
+  .brand__icon {
+    width: 5.8rem;
+  }
+
+  .brand__logo {
+    width: min(88vw, 23rem);
+  }
+}
+
+@media (max-height: 610px) and (orientation: landscape) {
+  .hero {
+    padding-block: 1.25rem;
+  }
+
+  .brand__icon {
+    width: 4.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .brand__logo {
+    width: min(50vw, 21rem);
+  }
+
+  .brand__message {
+    margin-top: 0.8rem;
+    font-size: 1.15rem;
+  }
+
+  .contact-button {
+    min-height: 2.8rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-button {
+    transition: none;
+  }
+}
